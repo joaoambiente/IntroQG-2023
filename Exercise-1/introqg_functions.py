@@ -2,6 +2,7 @@
 
 # Import any modules needed in your functions here
 import math
+import numpy as np
 
 # Define your new functions below
 
@@ -51,3 +52,11 @@ def stderr(sample_list):
     standard_error = standard_deviation / math.sqrt(total_nr_samples)
     
     return standard_error
+
+def gaussian(gauss_mean, gauss_stddev, gauss_x_array):
+    gauss_x_array = np.array(gauss_x_array)
+    
+    dividend = np.exp(-( (gauss_x_array - gauss_mean)**2 / (2 * gauss_stddev**2)))
+    divisor = gauss_stddev * np.sqrt( 2 * np.pi)
+    gaussian = dividend / divisor          
+    return np.round(gaussian, 4)
