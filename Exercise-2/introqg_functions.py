@@ -75,3 +75,16 @@ def linregress(x, y):
     B = ( N * sum_xy - (sum_x * sum_y)) / alpha
     
     return A, B
+
+def pearson(x, y):
+    """Returns the correlation coefficient between two variables: x and y"""
+    mean_x = np.mean(x)
+    mean_y = np.mean(y)
+
+    dividend_sum = np.sum( (x - mean_x) * (y - mean_y) )
+    divisor_sum = np.sqrt( np.sum( (x - mean_x)**2 ) * np.sum( (y - mean_y)**2 ) )
+    r = dividend_sum / divisor_sum
+    
+    return r 
+
+
