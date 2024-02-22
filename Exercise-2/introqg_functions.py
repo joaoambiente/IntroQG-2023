@@ -54,6 +54,10 @@ def stderr(sample_list):
     return standard_error
 
 def gaussian(gauss_mean, gauss_stddev, gauss_x_array):
+    """ Generates the normal distribution's probabilities of 
+    "gauss_x_array" values based on the gaussian equation and 
+    on the provided mean (gauss_mean) and standard deviation (gauss_stddev)
+    of the values in the array """
     gauss_x_array = np.array(gauss_x_array)
     
     dividend = np.exp(-( (gauss_x_array - gauss_mean)**2 / (2 * gauss_stddev**2)))
@@ -62,6 +66,7 @@ def gaussian(gauss_mean, gauss_stddev, gauss_x_array):
     return np.round(gaussian, 4)
 
 def linregress(x, y):
+    """Calculates the y-intercept "A" and slope "B" for the best-fit line to the input data (x, y)"""
     sum_x = np.sum(x)
     sum_x_squared = np.sum(np.square(x))
     sum_y = np.sum(y)
