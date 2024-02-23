@@ -93,3 +93,16 @@ def pearson(x, y):
     return r 
 
 
+def chi_squared(observations, expected_values, standard_deviation):
+    """
+    Reduced chi-squared equation
+    Calculates how much the expected values fall within the range of observations 
+    """
+    variance = standard_deviation**2
+    dividend = np.sum( (observations - expected_values)**2 / variance ) 
+    nr_observations = len(observations)
+    chi_squared = dividend / nr_observations
+
+    return chi_squared
+
+
